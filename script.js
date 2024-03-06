@@ -38,13 +38,23 @@ function hslHue() {
   return hslHuePosition;
 }
 
-function setGridEvent(selectedEvent = 0){
+/*
+TODO: Adjust setGridEvents to add an event listener that calls 
+for the selected event in each div. 
+So it doesn't need to update every event listener to a new event.
+
+Add/change a function that returns the current selected event?
+*/
+
+function setGridEvent(selectedEvent){
+  eventChosen = typeof(eventChosen) === 'undefined' ? 1 : eventChosen;
+  if (selectedEvent !== undefined){eventChosen = selectedEvent}
+  console.log("Event chosen: " + eventChosen);
   let gridSquares = document.querySelectorAll(".column > .row");
   gridSquares.forEach(element => {
-    element.addEventListener('mouseenter', () =>  hoverEventHandler(element, selectedEvent))
+    element.addEventListener('mouseenter', () =>  hoverEventHandler(element, eventChosen))
   });
 }
-
 
 //This will probably need a rewrite using for each. First create the columns using a simple for loop, then create the columns using for each.
 //Maybe separate some functionality, like creating the elements?
@@ -79,5 +89,5 @@ function generateGrid(){
       xAxisDivs[selectedDiv].appendChild(div);
     }
   }
-  setGridEvent(1);
+  setGridEvent();
 }
