@@ -1,4 +1,4 @@
-generateGrid(16, 16);
+generateGrid();
 
 function hoverEventHandler(inputElement, chosenEvent){
   switch (chosenEvent) {
@@ -7,6 +7,9 @@ function hoverEventHandler(inputElement, chosenEvent){
       break;
     case 2:
       changeBgToRnd(inputElement);
+      break;
+    case 3:
+      darkenMode(inputElement);
       break;
     default:
       break;
@@ -18,6 +21,16 @@ randomNum = (maxNum = 255) => Math.floor(Math.random() * maxNum);
 changeBgToRnd = (inputElement) => inputElement.style.backgroundColor = `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`;
 
 rainbowMode = (inputElement) => inputElement.style.backgroundColor = `hsl(${hslHue()}, 65%, 50%)`;
+
+darkenMode = (element) => {
+  const elementStyle = window.getComputedStyle(element);
+  const currentBgCol = elementStyle.backgroundColor;
+  let rgbValue = currentBgCol.match(/\d+/g);
+  rgbValue.forEach((element, index) => {
+    rgbValue[index] = (element > 20) ? element -20 : 0;
+  });
+  element.style.backgroundColor = `rgb(${rgbValue[0]}, ${rgbValue[1]}, ${rgbValue[2]})`
+}
 
 function hslHue() {
   hslHuePosition = typeof(hslHuePosition) === 'undefined' ? 0 : hslHuePosition;
@@ -36,12 +49,20 @@ function setGridEvent(selectedEvent = 0){
 //This will probably need a rewrite using for each. First create the columns using a simple for loop, then create the columns using for each.
 //Maybe separate some functionality, like creating the elements?
 
-function generateGrid(xAxisAmount, yAxisAmount) {
+function getGridSize(){
+  getXAxisValue = () => document.getElementById("x-axis").value;
+  getYAxisValue = () => document.getElementById("y-axis").value;
+  return {xAxis:getXAxisValue(), yAxis:getYAxisValue()};
+}
+
+function generateGrid(){
+  let gridSize = getGridSize();
+  console.log(gridSize);
   const rootDiv = document.getElementById('etch-a-sketch');
   rootDiv.style.display = 'flex';
   rootDiv.replaceChildren();
   
-  for (i = 0; i < xAxisAmount; i++) {
+  for (i = 0; i < gridSize.xAxis; i++) {
     let div = document.createElement("div")
     div.style.display = 'flex';
     div.style.flexDirection = 'column';
@@ -50,13 +71,10 @@ function generateGrid(xAxisAmount, yAxisAmount) {
   }
 
   let xAxisDivs = rootDiv.children;
-  for (j = 0; j < xAxisAmount; j++) {
+  for (j = 0; j < gridSize.xAxis; j++) {
     let selectedDiv = j;
-    for (k = 0; k < yAxisAmount; k++) {
+    for (k = 0; k < gridSize.yAxis; k++) {
       let div = document.createElement("div");
-      div.style.width = '50px';
-      div.style.height = '50px';
-      div.style.border = '1px solid black';
       div.classList.add('row');
       xAxisDivs[selectedDiv].appendChild(div);
     }
