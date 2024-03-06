@@ -1,3 +1,8 @@
+.main-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .header h1{
   text-align: center;
 }
@@ -6,14 +11,35 @@
   gap: 10px;
   padding: 10px;
   justify-content: center;
+  align-items: center;
 }
-
+.user-input label{
+  text-align: center;
+}
+.grid-size {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.grid-size input {
+  display: block;
+  font-size: 1rem;
+  width: auto;
+  height: 2rem;
+  text-align: center;
+}
 body {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
+#color-selector{
+  width: 3rem;
+  height: 3rem;
+}
 #etch-a-sketch{
+  width: fit-content;
   padding: 1rem;
   background-color: rgb(150, 150, 150);
   border-radius: 0.5rem;
@@ -29,14 +55,3 @@ body {
   transition-timing-function: ease-out;
   transition: background-color 0.1s;
 }
-
-/*
-#etch-a-sketch > div > div{
-  flex: 1 1 auto;
-  border: 3px solid black;
-  border-radius: 0.5rem;
-  margin: 1px;;
-  width: 3rem;
-  height: auto;
-  aspect-ratio: 1 / 1;
-}*/
