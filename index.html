@@ -14,27 +14,35 @@
       </div>
       <div class="user-input">
         <input type="color" name="Color Selector" id="color-selector" />
-        <input
-          type="number"
-          max="100"
-          min="1"
-          value="16"
-          name="X-Axis Amount"
-          id="x-axis"
-        />
-        <input
-          type="number"
-          max="100"
-          min="1"
-          value="16"
-          name="Y-Axis Amount"
-          id="y-axis"
-        />
+        <div class="grid-size">
+          <label for="X-Axis Amount"
+            >X-Axis
+            <input
+              type="range"
+              max="64"
+              min="1"
+              value="16"
+              name="X-Axis Amount"
+              id="x-axis"
+            />
+          </label>
+          <label for="Y-Axis Amount">
+            Y-Axis
+            <input
+              type="range"
+              max="64"
+              min="1"
+              value="16"
+              name="Y-Axis Amount"
+              id="y-axis"
+            />
+          </label>
+        </div>
         <input
           id="generateBtn"
           type="button"
           value="Generate / Clear Grid"
-          onclick="generateGrid(32, 20, 'etch-a-sketch')"
+          onclick="generateGrid()"
         />
       </div>
       <div id="etch-a-sketch"></div>
