@@ -38,14 +38,52 @@
             />
           </label>
         </div>
-        <input
-          id="generateBtn"
-          type="button"
-          value="Generate / Clear Grid"
-          onclick="generateGrid()"
-        />
+        <div class="mode-selectors">
+          <div>
+            <div class="radioButton">
+              <input
+                name="modeSelect"
+                id="selectorOne"
+                type="radio"
+                onclick="setGridEvent(1)"
+              />
+              <label for="selectorOne">Rainbow</label>
+            </div>
+            <div class="radioButton">
+              <input
+                name="modeSelect"
+                id="selectorTwo"
+                type="radio"
+                onclick="setGridEvent(2)"
+              />
+              <label for="selectorTwo">Rainbow Puke</label>
+            </div>
+          </div>
+          <div>
+            <div class="radioButton">
+              <input
+                name="modeSelect"
+                id="selectorThree"
+                type="radio"
+                onclick="setGridEvent(3)"
+              />
+              <label for="selectorThree">Darken</label>
+            </div>
+            <div class="radioButton">
+              <input
+                id="generateBtn"
+                type="button"
+                value=""
+                onclick="generateGrid()"
+              />
+              <label for="generateBtn">Clear/Gen</label>
+            </div>
+          </div>
+        </div>
       </div>
-      <div id="etch-a-sketch"></div>
+      <div class="etch-container">
+        <div id="etch-a-sketch"></div>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
