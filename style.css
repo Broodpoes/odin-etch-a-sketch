@@ -1,7 +1,9 @@
+body {
+  margin: 0;
+}
 .main-container{
-  display: flex;
-  flex-direction: column;
   align-items: center;
+  width: auto;
 }
 .header h1{
   text-align: center;
@@ -13,9 +15,50 @@
   justify-content: center;
   align-items: center;
 }
+
 .user-input label{
   text-align: center;
 }
+
+.mode-selectors{
+  gap: 4px;
+  display: flex;
+}
+
+.mode-selectors > div{
+  display: flex;
+  flex-direction: column;
+  gap: inherit;
+}
+
+.mode-selectors label{
+  user-select: none;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  padding: 4px 8px;
+  display: block;
+  text-align: center;
+}
+
+.mode-selectors label:hover{
+  transition: all 0.33s;
+  background-color: hsl(212, 100%, 90%);
+}
+.mode-selectors input:checked ~ label{
+  transition: all 0.33s;
+  color: white;
+  border-color: transparent;
+  background-color: #0075ff;
+}
+
+.mode-selectors input{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
 .grid-size {
   display: flex;
   flex-direction: column;
@@ -29,16 +72,17 @@
   height: 2rem;
   text-align: center;
 }
-body {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
+
 #color-selector{
   width: 3rem;
   height: 3rem;
 }
+div .etch-container{
+  display: flex;
+  justify-content: center;
+}
 #etch-a-sketch{
+  display: flex;
   width: fit-content;
   padding: 1rem;
   background-color: rgb(150, 150, 150);
