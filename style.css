@@ -50,8 +50,16 @@ body {
   border-color: transparent;
   background-color: #0075ff;
 }
+#colSelect{
+  display: block;
+  background-color: #0075ff;
+  border: 2px solid black;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  width: 4rem;
+}
 
-.mode-selectors input{
+.invisible {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -73,10 +81,6 @@ body {
   text-align: center;
 }
 
-#color-selector{
-  width: 3rem;
-  height: 3rem;
-}
 div .etch-container{
   display: flex;
   justify-content: center;
