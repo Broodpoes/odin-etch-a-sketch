@@ -52,7 +52,6 @@ body {
 }
 #colSelect{
   display: block;
-  background-color: #0075ff;
   border: 2px solid black;
   border-radius: 50%;
   aspect-ratio: 1 / 1;

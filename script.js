@@ -1,6 +1,6 @@
 generateGrid();
 setGridEvent(1);
-document.getElementById('color-selector').addEventListener('change', getPickedCol);
+document.getElementById('color-selector').addEventListener('input', setColorPickerBg);
 
 function setGridEvent(input){
   chosenEvent = typeof(input) === 'undefined' ? chosenEvent : input;
@@ -32,6 +32,10 @@ function getPickedCol(){
   return colorPicker.value;
 }
 
+function setColorPickerBg(){
+  colorPickerBg = document.getElementById('colSelect')
+  colorPickerBg.style.backgroundColor = getPickedCol();
+}
 
 randomNum = (maxNum = 255) => Math.floor(Math.random() * maxNum);
 
