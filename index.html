@@ -13,7 +13,15 @@
         <h1>Etch-A Sketch</h1>
       </div>
       <div class="user-input">
-        <input type="color" name="Color Selector" id="color-selector" />
+        <div>
+          <input
+            class="invisible"
+            type="color"
+            name="Color Selector"
+            id="color-selector"
+          />
+          <label id="colSelect" for="color-selector"></label>
+        </div>
         <div class="grid-size">
           <label for="X-Axis Amount"
             >X-Axis
@@ -42,6 +50,7 @@
           <div>
             <div class="radioButton">
               <input
+                class="invisible"
                 name="modeSelect"
                 id="selectorOne"
                 type="radio"
@@ -52,6 +61,7 @@
             </div>
             <div class="radioButton">
               <input
+                class="invisible"
                 name="modeSelect"
                 id="selectorTwo"
                 type="radio"
@@ -63,6 +73,7 @@
           <div>
             <div class="radioButton">
               <input
+                class="invisible"
                 name="modeSelect"
                 id="selectorThree"
                 type="radio"
@@ -72,6 +83,7 @@
             </div>
             <div class="radioButton">
               <input
+                class="invisible"
                 id="generateBtn"
                 type="button"
                 value=""
