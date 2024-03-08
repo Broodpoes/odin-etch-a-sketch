@@ -1,5 +1,6 @@
 generateGrid();
 setGridEvent(1);
+document.getElementById('color-selector').addEventListener('change', getPickedCol);
 
 function setGridEvent(input){
   chosenEvent = typeof(input) === 'undefined' ? chosenEvent : input;
@@ -17,16 +18,28 @@ function hoverEventHandler(element){
     case 3:
       darkenMode(element);
       break;
+    case 4:
+      colorMode(element);
+      break;
     default:
       break;
   }
 }
+
+
+function getPickedCol(){
+  colorPicker = document.getElementById('color-selector');
+  return colorPicker.value;
+}
+
 
 randomNum = (maxNum = 255) => Math.floor(Math.random() * maxNum);
 
 changeBgToRnd = (inputElement) => inputElement.style.backgroundColor = `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`;
 
 rainbowMode = (inputElement) => inputElement.style.backgroundColor = `hsl(${hslHue()}, 65%, 50%)`;
+
+colorMode = (inputElement) => inputElement.style.backgroundColor = `${getPickedCol()}`;
 
 darkenMode = (element) => {
   const elementStyle = window.getComputedStyle(element);
@@ -43,14 +56,6 @@ function hslHue() {
   hslHuePosition = (hslHuePosition < 350) ? hslHuePosition +20 : 0;
   return hslHuePosition;
 }
-
-/*
-TODO: Adjust setGridEvents to add an event listener that calls 
-for the selected event in each div. 
-So it doesn't need to update every event listener to a new event.
-
-Add/change a function that returns the current selected event?
-*/
 
 function setGridEventHandler(){
   let gridSquares = document.querySelectorAll(".column > .row");
