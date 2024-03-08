@@ -41,11 +41,11 @@ body {
 }
 
 .mode-selectors label:hover{
-  transition: all 0.33s;
+  transition: all 0.3s;
   background-color: hsl(212, 100%, 90%);
 }
 .mode-selectors input:checked ~ label{
-  transition: all 0.33s;
+  transition: all 0.3s;
   color: white;
   border-color: transparent;
   background-color: #0075ff;
@@ -55,7 +55,11 @@ body {
   border: 2px solid black;
   border-radius: 50%;
   aspect-ratio: 1 / 1;
-  width: 4rem;
+  width: 5rem;
+}
+#colSelect:hover{
+  box-shadow: 0 0 10px #0075ff;
+  transition: all 0.15s;
 }
 
 .invisible {
