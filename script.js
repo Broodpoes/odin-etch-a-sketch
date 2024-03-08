@@ -1,15 +1,21 @@
 generateGrid();
+setGridEvent(1);
 
-function hoverEventHandler(inputElement, chosenEvent){
-  switch (chosenEvent) {
+function setGridEvent(input){
+  chosenEvent = typeof(input) === 'undefined' ? chosenEvent : input;
+  return chosenEvent;
+}
+
+function hoverEventHandler(element){
+  switch (setGridEvent()) {
     case 1:
-      rainbowMode(inputElement);
+      rainbowMode(element);
       break;
     case 2:
-      changeBgToRnd(inputElement);
+      changeBgToRnd(element);
       break;
     case 3:
-      darkenMode(inputElement);
+      darkenMode(element);
       break;
     default:
       break;
@@ -46,13 +52,10 @@ So it doesn't need to update every event listener to a new event.
 Add/change a function that returns the current selected event?
 */
 
-function setGridEvent(selectedEvent){
-  eventChosen = typeof(eventChosen) === 'undefined' ? 1 : eventChosen;
-  if (selectedEvent !== undefined){eventChosen = selectedEvent}
-  console.log("Event chosen: " + eventChosen);
+function setGridEventHandler(){
   let gridSquares = document.querySelectorAll(".column > .row");
   gridSquares.forEach(element => {
-    element.addEventListener('mouseenter', () =>  hoverEventHandler(element, eventChosen))
+    element.addEventListener('mouseenter', () =>  hoverEventHandler(element))
   });
 }
 
@@ -89,5 +92,5 @@ function generateGrid(){
       xAxisDivs[selectedDiv].appendChild(div);
     }
   }
-  setGridEvent();
+  setGridEventHandler();
 }
