@@ -1,6 +1,16 @@
 generateGrid();
 setGridEvent(1);
-document.getElementById('color-selector').addEventListener('input', setColorPickerBg);
+const colSelect = document.getElementById('color-selector');
+colSelect.addEventListener('input', setColorPickerBg);
+colSelect.addEventListener('change', handleColorMode);
+const radioButtons = document.querySelectorAll(`input[type='radio']`);
+
+function handleColorMode(){
+  setGridEvent(4);
+  radioButtons.forEach(element => {
+    element.checked = false;
+  });
+}
 
 function setGridEvent(input){
   chosenEvent = typeof(input) === 'undefined' ? chosenEvent : input;
@@ -64,7 +74,7 @@ function hslHue() {
 function setGridEventHandler(){
   let gridSquares = document.querySelectorAll(".column > .row");
   gridSquares.forEach(element => {
-    element.addEventListener('mouseenter', () =>  hoverEventHandler(element))
+    element.addEventListener('mouseenter', () =>  hoverEventHandler(element));
   });
 }
 
